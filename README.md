@@ -3,16 +3,25 @@
 ## Project Structure
 
 ```
-boilerplate/
+demo-app-crud/
 ├── backend/
 │   ├── main.py          # FastAPI app, all routes
 │   ├── database.py      # SQLAlchemy engine + session
 │   ├── models.py        # ORM models (DB tables)
 │   ├── schemas.py       # Pydantic request/response schemas
 │   └── requirements.txt
-└── frontend/
-    └── src/
-        └── App.jsx      # React app with full CRUD UI
+├── frontend/
+│   ├── public/
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── App.jsx      # React app with full CRUD UI
+│   │   ├── main.jsx     # Entry point
+│   │   └── index.css    # Base styles
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+├── .gitignore
+└── README.md
 ```
 
 ---
@@ -24,7 +33,7 @@ cd backend
 
 # Create virtual environment
 python -m venv venv
-source venv/bin/activate        # Windows: venv\Scripts\activate
+source venv/bin/activate        # Windows: venv\Scripts\Activate.ps1
 
 # Install dependencies
 pip install -r requirements.txt
@@ -32,7 +41,7 @@ pip install -r requirements.txt
 # Run the server
 uvicorn main:app --reload
 # → Running at http://localhost:8000
-# → Docs at http://localhost:8000/docs  ← use this to test!
+# → Docs at http://localhost:8000/docs
 ```
 
 ---
@@ -40,12 +49,8 @@ uvicorn main:app --reload
 ## Frontend Setup
 
 ```bash
-# From project root — scaffold with Vite if not already done:
-npm create vite@latest frontend -- --template react
 cd frontend
 npm install
-
-# Replace src/App.jsx with the provided file, then:
 npm run dev
 # → Running at http://localhost:5173
 ```
